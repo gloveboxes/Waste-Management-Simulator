@@ -1,0 +1,8 @@
+{
+  "IotHubAddress":"IoThubSFM.azure-devices.net",
+  "DeviceId":"sfm-bin-1",
+  "SharedAccessKey":"tkx2D0MTS4TAUmzxwGu0tZ9LuBW8BbDNTgzySiTx7OI=",
+  "SensorModule":"sensor_waste_level",
+  "OpenWeatherMapApiKey":"c204bb28a2f9dc23925f27b9e21296dd",
+  "OpenWeatherMapLocationId":"sfm-bin-1"
+}

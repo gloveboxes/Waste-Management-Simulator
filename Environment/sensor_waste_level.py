@@ -1,0 +1,41 @@
+import sys
+#sys.path[0:0] = ['../common'] ## path to shared owm.py (open weather map) and iothub.py (azure iot hub python) files
+import owm 
+from datetime import datetime
+import math
+
+
+class Sensor():
+
+    msg_txt = "{\"Geo\":\"%s\",\"Level\":%d,\"Id\":%d, \"Schema\":1}"
+  
+    sampleRateMinutes = 5
+    maxBinDepthCMs = 100
+
+    def __init__(self, owmApiKey, owmLocation='Sydney, au', cacheSeconds=60):
+        # self.openWeather = owm.Weather(owmApiKey, owmLocation)
+        self.sensorLocation = owmLocation
+        self.id = 0
+        self.currentLevel = 0
+        self.epoch = datetime(1970,1,1)
+        self.fillRate = 0
+        self.hourlyFillRateCMs = {0:10, 1:10, 2:10, 3:100, 4:200, 5:300, 6:400, 7:300, 8:400, 9:400, 10:500, 11:550, 12:600, 13:500, 14:500, 15:450, 16:400, 17:400, 18:400, 19:300, 20:200, 21:200, 22:100, 23:50  }
+        self.dayScaler = {1:1, 2:1, 3:1, 4:2, 5:3, 6:4, 7:4}
+        self.lastEpoch = math.floor((datetime.now() - datetime(1970,1,1)).total_seconds())
+
+
+    def measure(self):
+        global maxBinDepthCMS
+        if self.currentLevel > 100:
+           self.currentLevel = 0
+
+        newEpoch = math.floor((datetime.now() - datetime(1970,1,1)).total_seconds())
+        deltaSeconds = newEpoch - self.lastEpoch
+        self.lastEpoch = newEpoch
+
+        fillAmount = self.hourlyFillRateCMs[datetime.now().hour] / 60 / 60 * deltaSeconds * self.dayScaler[datetime.now().isoweekday()]
+
+        self.currentLevel = self.currentLevel + fillAmount
+        
+        self.id += 1
+        return self.msg_txt % (self.sensorLocation, self.currentLevel, self.id)
