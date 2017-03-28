@@ -1,0 +1,7 @@
+{
+  "IotHubAddress":"IoThubSFM.azure-devices.net",
+  "DeviceId":"sfm-bin-2",
+  "SharedAccessKey":"XqUVdi9hN7kehIorOASSNN2/brcQT5f+iRkN2qwmIbo=",
+  "SensorModule":"sensor_waste_level",
+  "BinId":2
+}

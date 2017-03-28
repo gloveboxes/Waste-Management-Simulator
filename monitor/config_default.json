@@ -3,7 +3,5 @@
   "DeviceId":"mqttwindows",
   "SharedAccessKey":"YdPKYydqxdkZTNqNzFO4mGajb15vjJRibL3tUCdX4B0=",
   "SensorModule":"sensor_waste_level",
-  "OpenWeatherMapApiKey":"c204bb28a2f9dc23925f27b9e21296dd",
-  "OpenWeatherMapLocationId":"Melbourne, AU",
   "BinId":1
 }

@@ -30,7 +30,6 @@ class Config():
         self.owmLocation = 'Melbourne, AU'
 
     def config_load(self, configFile):
-        #global sensor, hubAddress, deviceId, sharedAccessKey, owmApiKey, owmLocation
         try:
             print('Loading {0} settings'.format(configFile))
 
@@ -41,8 +40,6 @@ class Config():
             self.hubAddress = config['IotHubAddress']
             self.deviceId = config['DeviceId']
             self.sharedAccessKey = config['SharedAccessKey']
-            self.owmApiKey = config['OpenWeatherMapApiKey']
-            self.owmLocation = config['OpenWeatherMapLocationId']
             self.binId = config['BinId']
         except:
             self.config_defaults()

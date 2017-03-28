@@ -7,7 +7,7 @@ import math
 
 class Sensor():
 
-    msg_txt = "{\"BinId\":\"%s\",\"Level\":%d,\"MsgId\":%d, \"Schema\":1}"
+    msg_txt = "{\"BinId\":\"%s\",\"Level\":%d, \"Schema\":1,\"MsgId\":%d}"
   
     sampleRateMinutes = 5
     maxBinDepthCMs = 100
