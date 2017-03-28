@@ -7,15 +7,15 @@ import math
 
 class Sensor():
 
-    msg_txt = "{\"Geo\":\"%s\",\"Level\":%d,\"Id\":%d, \"Schema\":1}"
+    msg_txt = "{\"BinId\":\"%s\",\"Level\":%d,\"MsgId\":%d, \"Schema\":1}"
   
     sampleRateMinutes = 5
     maxBinDepthCMs = 100
 
-    def __init__(self, owmApiKey, owmLocation='Sydney, au', cacheSeconds=60):
+    def __init__(self, binId=0):
         # self.openWeather = owm.Weather(owmApiKey, owmLocation)
-        self.sensorLocation = owmLocation
-        self.id = 0
+        self.binId = binId
+        self.msgId = 0
         self.currentLevel = 0
         self.epoch = datetime(1970,1,1)
         self.fillRate = 0
@@ -37,5 +37,5 @@ class Sensor():
 
         self.currentLevel = self.currentLevel + fillAmount
         
-        self.id += 1
-        return self.msg_txt % (self.sensorLocation, self.currentLevel, self.id)
+        self.msgId += 1
+        return self.msg_txt % (self.binId, self.currentLevel, self.msgId)

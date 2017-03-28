@@ -58,7 +58,7 @@ if len(sys.argv) == 2:
 else:
     cfg = config.Config("config_default.json")
 
-mysensor = cfg.sensor.Sensor(cfg.owmApiKey, cfg.owmLocation)
+mysensor = cfg.sensor.Sensor(cfg.binId)
 iot = iothub.IotHub(cfg.hubAddress, cfg.deviceId, cfg.sharedAccessKey)
 
 client = mqtt.Client(cfg.deviceId, mqtt.MQTTv311)

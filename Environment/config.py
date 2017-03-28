@@ -43,6 +43,7 @@ class Config():
             self.sharedAccessKey = config['SharedAccessKey']
             self.owmApiKey = config['OpenWeatherMapApiKey']
             self.owmLocation = config['OpenWeatherMapLocationId']
+            self.binId = config['BinId']
         except:
             self.config_defaults()
 
