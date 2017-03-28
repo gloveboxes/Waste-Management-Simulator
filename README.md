@@ -1,4 +1,4 @@
-# Azure IoT Hub, Python 3 over MQTT Waste Management Simulator.
+# Azure IoT Hub Python 3 Waste Management Simulator.
 
 
 This cross platform Python3 code sample demonstrates how to stream data to Azure IoT Hub from Windows, OSX, Linux including Ubuntu and Raspberry Pi Zero, 2 and 3
