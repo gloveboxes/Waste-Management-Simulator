@@ -1,8 +1,13 @@
-# Azure IoT Hub with Python and MQTT support from Windows, Mac OS X Sierra, Linux including Ubuntu and Raspberry Pi Zero, 2 and 3
+# Azure IoT Hub Cross Platform Python and MQTT Waste Management Sample.
+
 
 This cross platform Python3 code sample demonstrates how to stream data to Azure IoT Hub from Windows, OSX, Linux including Ubuntu and Raspberry Pi Zero, 2 and 3
 
-As at September 2016.
+As at March 2017.
+
+## Purpose
+
+Simulate waste bin fill rate based on time of day and day of the week.
 
 ## Language: Python3
 
@@ -20,7 +25,7 @@ As at September 2016.
 5. Should work on any platform supporting Python3 and the Paho-Mqtt library.
 
 
-# Smart Building Sample Installation
+# Waste Management Sample Installation
 
 Easiest way is to git clone the solution.
 
@@ -37,30 +42,17 @@ then change to the iothub directory.
 The following libraries are required.
 
 1. Paho-MQTT - Mqtt Support
-2. Open Weather Map for Virtual Weather HAT
-
 
 
 ## On Raspberry Pi Rasbian and Ubuntu/Linux
 
-    sudo pip3 install pyowm
     sudo pip3 install paho-mqtt
 
 ## On Windows and MacOS
 
-    pip3 install pyowm
     pip3 install paho-mqtt
 
 
-
-
-# Raspberry Pi HATS
-
-Sample code includes support for the following HATS
-
-1. [Raspberry Pi Sense HAT](https://www.raspberrypi.org/products/sense-hat/): sensor_envirophat.py
-2. [Enviro pHAT](https://shop.pimoroni.com/products/enviro-phat): sensor_sensehat
-3. [Open Weather Map](http://openweathermap.org/) sensor_openweather.py
 
 # Startup Configuration
 
@@ -72,15 +64,13 @@ example sensor_envirophat.json
         "IotHubAddress":"YourIoTHub.azure-devices.net",
         "DeviceId":"pizero",
         "SharedAccessKey":"uJ21qp9LUvjkohipkXycvb7RoYwmUDE+4gXyIYS00feZg=",
-        "SensorModule":"sensor_envirophat",
-        "OpenWeatherMapApiKey":"c2044448a2f55555925f27b9e21296dd",
-        "OpenWeatherMapLocationId":"Melbourne, AU"
+        "BinId":1
     }
 
 ## Startup example
 
-    python3 environment.py sensor_envirophat.json
-    python3 environment.py sensor_openweather.json
+    python3 environment.py config_bin_1.json
+    python3 environment.py config_bin_2.json
 
 
 # MQTT TLS Certificate
