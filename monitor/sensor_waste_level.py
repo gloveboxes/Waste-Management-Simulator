@@ -1,8 +1,8 @@
 import sys
-#sys.path[0:0] = ['../common'] ## path to shared owm.py (open weather map) and iothub.py (azure iot hub python) files
-import owm 
 from datetime import datetime
 import math
+from random import randint
+
 
 
 class Sensor():
@@ -12,14 +12,15 @@ class Sensor():
     sampleRateMinutes = 5
     maxBinDepthCMs = 100
 
-    def __init__(self, binId=0):
+    def __init__(self, binId, hourlyFillRateCMs):
         # self.openWeather = owm.Weather(owmApiKey, owmLocation)
         self.binId = binId
         self.msgId = 0
-        self.currentLevel = 0
+        self.currentLevel = randint(10,80)
         self.epoch = datetime(1970,1,1)
         self.fillRate = 0
-        self.hourlyFillRateCMs = {0:10, 1:10, 2:10, 3:100, 4:200, 5:300, 6:400, 7:300, 8:400, 9:400, 10:500, 11:550, 12:600, 13:500, 14:500, 15:450, 16:400, 17:400, 18:400, 19:300, 20:200, 21:200, 22:100, 23:50  }
+        # self.hourlyFillRateCMs = {0:10, 1:10, 2:10, 3:100, 4:200, 5:300, 6:400, 7:300, 8:400, 9:400, 10:500, 11:550, 12:600, 13:500, 14:500, 15:450, 16:400, 17:400, 18:400, 19:300, 20:200, 21:200, 22:100, 23:50  }
+        self.hourlyFillRateCMs = hourlyFillRateCMs
         self.dayScaler = {1:1, 2:1, 3:1, 4:2, 5:3, 6:4, 7:4}
         self.lastEpoch = math.floor((datetime.now() - datetime(1970,1,1)).total_seconds())
 

@@ -52,13 +52,15 @@ def publish():
             print("Unexpected error")
             time.sleep(4)
 
+try:
+    if len(sys.argv) == 2:
+        cfg = config.Config(sys.argv[1])
+    else:
+        cfg = config.Config("config_default.json")
+except Exception as e:
+    sys.exit(e)
 
-if len(sys.argv) == 2:
-    cfg = config.Config(sys.argv[1])
-else:
-    cfg = config.Config("config_default.json")
-
-mysensor = cfg.sensor.Sensor(cfg.binId)
+mysensor = cfg.sensor.Sensor(cfg.binId, cfg.hourlyFillRateCMs)
 iot = iothub.IotHub(cfg.hubAddress, cfg.deviceId, cfg.sharedAccessKey)
 
 client = mqtt.Client(cfg.deviceId, mqtt.MQTTv311)

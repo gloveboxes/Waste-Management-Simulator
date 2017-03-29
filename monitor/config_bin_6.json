@@ -3,5 +3,7 @@
   "DeviceId":"sfm-bin-6",
   "SharedAccessKey":"bGEcDQZmYhVtuPbppDLVcQZhVhhdqt7D7WiaKk1eONc=",
   "SensorModule":"sensor_waste_level",
-  "BinId":6
+  "BinId":6,
+  "SampleRateSeconds":20,  
+  "HourlyFillRateCMs":[10, 50, 60, 100, 200, 300, 400, 300, 200, 100, 100, 100, 200, 400, 500, 450, 400, 300, 300, 200, 100, 0, 0, 0]
 }
