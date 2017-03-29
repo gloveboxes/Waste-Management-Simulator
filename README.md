@@ -62,7 +62,7 @@ example sensor_envirophat.json
 
     {
         "IotHubAddress":"YourIoTHub.azure-devices.net",
-        "DeviceId":"pizero",
+        "DeviceId":"bin-1",
         "SharedAccessKey":"uJ21qp9LUvjkohipkXycvb7RoYwmUDE+4gXyIYS00feZg=",
         "BinId":1
     }
